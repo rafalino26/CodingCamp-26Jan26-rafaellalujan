@@ -1,18 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Project</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    <header>
-      <nav class="nav">
-        <a href="#home">Home</a>
-        <a href="#profile">Our Profile</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#message">Message Us</a>
-      </nav>
-    </header>
+
+<body class="font-sans bg-slate-50 text-slate-900">
+
+  <!-- header -->
+<header class="sticky top-0 z-10 bg-white/90 backdrop-blur border-b">
+  <div class="max-w-5xl mx-auto flex items-center justify-between p-4">
+    <!-- logo -->
+    <div class="flex items-center gap-3">
+      <div class="logo"></div>
+      <div>
+        <p class="font-bold leading-none">Portfolio Website</p>
+        <p class="text-xs text-slate-500">mini project</p>
+      </div>
+    </div>
+
+    <!-- navbar desktop -->
+    <nav class="hidden md:flex gap-2 text-sm">
+      <a class="px-3 py-2 rounded hover:bg-slate-100" href="#home">Home</a>
+      <a class="px-3 py-2 rounded hover:bg-slate-100" href="#profile">Our Profile</a>
+      <a class="px-3 py-2 rounded hover:bg-slate-100" href="#portfolio">Portfolio</a>
+      <a class="px-3 py-2 rounded hover:bg-slate-100" href="#message">Message Us</a>
+    </nav>
+
+    <!-- menu button mobile -->
+    <button
+      id="menuBtn"
+      class="md:hidden border rounded px-3 py-2 text-sm hover:bg-slate-100"
+      type="button"
+    >
+      Menu
+    </button>
+  </div>
+</header>
+
+<div id="mobileOverlay" class="hidden fixed inset-0 bg-black/40 z-40"></div>
+
+<aside
+  id="mobileMenu"
+  class="hidden fixed top-0 right-0 h-full w-[260px] bg-white border-l p-4 z-50 overflow-y-auto"
+>
+  <div class="flex items-center justify-between">
+    <p class="font-semibold">Menu</p>
+    <button id="closeMenuBtn" class="border rounded px-2 py-1 text-sm" type="button">
+      X
+    </button>
+  </div>
+
+  <nav class="mt-4 flex flex-col gap-2 text-sm">
+    <a class="px-3 py-2 rounded hover:bg-slate-100" href="#home">Home</a>
+    <a class="px-3 py-2 rounded hover:bg-slate-100" href="#profile">Our Profile</a>
+    <a class="px-3 py-2 rounded hover:bg-slate-100" href="#portfolio">Portfolio</a>
+    <a class="px-3 py-2 rounded hover:bg-slate-100" href="#message">Message Us</a>
+  </nav>
+</aside>
+
+  <main class="max-w-5xl mx-auto">
+
+    <!-- home section -->
+    <section id="home" class="px-4 py-10 scroll-mt-24">
+      <div class="rounded-2xl p-8 bg-gradient-to-r from-indigo-500 to-sky-500 text-white">
+        <p class="text-sm opacity-90">Welcome 👋</p>
+        <h1 class="text-2xl md:text-3xl font-bold mt-1" id="welcomeText">
+          Hi Name, Welcome To Website
+        </h1>
+      </div>
+
+      <!-- banner image -->
+      <div class="mt-6 rounded-2xl overflow-hidden border bg-white">
+        <img
+          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80"
+          alt="Banner"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </section>
+
+   <!-- our profile -->
+    <section id="profile" class="px-4 py-10 scroll-mt-24">
+      <div>
+        <h2 class="text-xl font-bold">Our Profile</h2>
+        <p class="text-slate-600 text-sm mt-1">
+          Learn more about our company, vision, and mission.
+        </p>
+      </div>
+
+      <!-- banner image profile -->
+      <div class="mt-6 rounded-2xl overflow-hidden border bg-white">
+        <img
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80"
+          alt="Company Banner"
+          class="w-full h-[220px] object-cover"
+        />
+      </div>
+
+      <!-- about, vision, mission -->
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="card">
+          <h3 class="font-semibold text-lg">About the Company</h3>
+          <p class="text-sm text-slate-600 mt-2">
+            Rafa Studio is a small team that creates simple websites and digital
+            products. We focus on clean design and easy-to-use features.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="font-semibold text-lg">Vision</h3>
+          <p class="text-sm text-slate-600 mt-2">
+            To become a friendly and trusted digital partner for people and small businesses.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="font-semibold text-lg">Mission</h3>
+          <ul class="text-sm text-slate-600 mt-2 list-disc pl-5 space-y-1">
+            <li>Create simple and useful websites.</li>
+            <li>Help users understand technology step by step.</li>
+            <li>Deliver projects on time with good communication.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Headquarter (optional but nice) -->
+      <div class="mt-10">
+        <h3 class="text-lg font-semibold">Our Headquarter</h3>
+
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="card text-center">
+            <div class="circle mx-auto"></div>
+            <p class="font-semibold mt-3">Jakarta</p>
+            <p class="text-sm text-slate-600 mt-1">Main office</p>
+          </div>
+
+          <div class="card text-center">
+            <div class="circle mx-auto"></div>
+            <p class="font-semibold mt-3">Bandung</p>
+            <p class="text-sm text-slate-600 mt-1">Creative hub</p>
+          </div>
+
+          <div class="card text-center">
+            <div class="circle mx-auto"></div>
+            <p class="font-semibold mt-3">Surabaya</p>
+            <p class="text-sm text-slate-600 mt-1">Support team</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- portofolio -->
+    <section id="portfolio" class="px-4 py-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Portfolio</h2>
+
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="card overflow-hidden p-0">
+          <img class="w-full h-[140px] object-cover"
+            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
+            alt="Project 1">
+          <div class="p-4">
+            <p class="font-semibold">Project 1</p>
+            <p class="text-sm text-slate-600 mt-1">Landing page simple.</p>
+          </div>
+        </div>
+
+        <div class="card overflow-hidden p-0">
+          <img class="w-full h-[140px] object-cover"
+            src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
+            alt="Project 2">
+          <div class="p-4">
+            <p class="font-semibold">Project 2</p>
+            <p class="text-sm text-slate-600 mt-1">Form + validation.</p>
+          </div>
+        </div>
+
+        <div class="card overflow-hidden p-0">
+          <img class="w-full h-[140px] object-cover"
+            src="https://images.unsplash.com/photo-1550439062-609e1531270e?auto=format&fit=crop&w=800&q=80"
+            alt="Project 3">
+          <div class="p-4">
+            <p class="font-semibold">Project 3</p>
+            <p class="text-sm text-slate-600 mt-1">Basic section layout.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- message -->
+    <section id="message" class="px-4 py-10 scroll-mt-24">
+      <h2 class="text-xl font-bold">Message Us</h2>
+
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- form -->
+        <form id="messageForm" class="card">
+          <div class="mb-3">
+            <label class="text-sm font-semibold">Nama</label>
+            <input id="nameInput" class="mt-1 w-full border rounded px-3 py-2" type="text" placeholder="Nama anda" />
+          </div>
+
+          <div class="mb-3">
+            <label class="text-sm font-semibold">Tanggal Lahir</label>
+            <input id="birthInput" class="mt-1 w-full border rounded px-3 py-2" type="date" />
+          </div>
+
+          <div class="mb-3">
+            <p class="text-sm font-semibold">Jenis Kelamin</p>
+            <div class="mt-2 flex gap-4 text-sm">
+              <label><input type="radio" name="gender" value="Laki-Laki" /> Laki-Laki</label>
+              <label><input type="radio" name="gender" value="Perempuan" /> Perempuan</label>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="text-sm font-semibold">Pesan</label>
+            <textarea id="messageInput" class="mt-1 w-full border rounded px-3 py-2 h-[100px]"
+              placeholder="Tulis pesan..."></textarea>
+          </div>
+
+          <button class="w-full bg-slate-900 text-white rounded py-2" type="submit">
+            Submit
+          </button>
+
+          <p id="errorText" class="text-red-500 text-sm mt-3"></p>
+        </form>
+
+        <!-- result -->
+        <div class="card">
+          <p class="font-semibold mb-3">Result</p>
+          <div class="text-sm space-y-2">
+            <p><b>Current time:</b> <span id="timeNow">-</span></p>
+            <p><b>Nama:</b> <span id="outName">-</span></p>
+            <p><b>Tanggal Lahir:</b> <span id="outBirth">-</span></p>
+            <p><b>Jenis Kelamin:</b> <span id="outGender">-</span></p>
+            <p><b>Pesan:</b> <span id="outMessage">-</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer -->
+  <footer class="border-t mt-6">
+    <div class="max-w-5xl mx-auto px-4 py-4 text-sm text-slate-600 flex justify-between">
+      <p>Created by Rafael</p>
+      <p>&copy; 2026</p>
+    </div>
+  </footer>
+
+  <!-- javascript -->
+  <script src="js/script.js"></script>
 </body>
 </html>
